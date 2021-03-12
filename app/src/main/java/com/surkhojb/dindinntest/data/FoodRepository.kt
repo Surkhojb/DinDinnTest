@@ -14,12 +14,11 @@ interface FoodRepository {
 }
 
 class FoodRepositoryImpl(
-    private val foodApi: FoodApi
 ): FoodRepository {
 
-    override fun fetchPizza() = foodApi.fetchPizza()
+    override fun fetchPizza() = FoodApi.fetchPizza()
 
-    override fun fetchSushi() = foodApi.fetchSushi()
+    override fun fetchSushi() = FoodApi.fetchSushi()
 
-    override fun fetchDrink() = foodApi.fetchDrink()
+    override fun fetchDrink() = FoodApi.fetchDrink()
 }

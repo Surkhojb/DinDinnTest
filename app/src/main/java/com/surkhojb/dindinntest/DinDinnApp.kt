@@ -1,13 +1,14 @@
 package com.surkhojb.dindinntest
 
 import android.app.Application
-import com.facebook.drawee.backends.pipeline.Fresco
+import com.airbnb.mvrx.Mavericks
+import dagger.hilt.android.HiltAndroidApp
 
-class DinDinnApp : Application() {
+@HiltAndroidApp
+class DinDinnApp : Application(){
 
     override fun onCreate() {
         super.onCreate()
-
-        Fresco.initialize(this)
+        Mavericks.initialize(this)
     }
 }

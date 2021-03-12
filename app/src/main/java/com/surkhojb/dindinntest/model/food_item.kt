@@ -2,6 +2,7 @@ package com.surkhojb.dindinntest.model
 
 data class FoodItem(
     val id: Long,
+    val url: String,
     val name: String,
     val description: String,
     val category: FoodCategory,
@@ -10,7 +11,7 @@ data class FoodItem(
 )
 
 enum class FoodCategory(val category: String) {
-    PIZZA("pizza"),
-    SUSHI("sushi"),
-    DRINK("drink")
+    PIZZA("PIZZA"),
+    SUSHI("SUSHI"),
+    DRINK("DRINK")
 }

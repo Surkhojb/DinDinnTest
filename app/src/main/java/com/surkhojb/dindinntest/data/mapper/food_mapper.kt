@@ -6,6 +6,7 @@ import com.surkhojb.dindinntest.model.FoodItem
 
 fun FoodDTO.toModel() = FoodItem(
     id,
+    url,
     name,
     description,
     FoodCategory.valueOf(category),
