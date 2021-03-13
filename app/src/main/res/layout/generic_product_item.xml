@@ -55,6 +55,7 @@
             android:id="@+id/generic_product_btn_buy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/generic_product_description" />
 
