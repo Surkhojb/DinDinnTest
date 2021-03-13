@@ -12,7 +12,7 @@ object FoodApi {
     }
 
     fun fetchSushi(): Single<List<FoodDTO>>{
-        return Single.just(buildDrinks())
+        return Single.just(buildSushi())
             .delay(2, TimeUnit.SECONDS, Schedulers.io())
     }
 
@@ -31,12 +31,20 @@ object FoodApi {
 
     )
 
+    private fun buildSushi() = listOf(
+        FoodDTO(20, SASHIMI_URL,"Sashimi","Salmon Sashimi: 8 pcs","SUSHI",15.5,10),
+        FoodDTO(21, CALIFORNIA_URL,"California Roll","6 Delicious rolls","SUSHI",12.5,10),
+        FoodDTO(22, TUNA_URL,"Tuna Sushi","6 delicious pcs of tuna sushi","SUSHI",12.5,10),
+        FoodDTO(23, SHRIMP_URL,"Shrimp","6 delicious pcs of shrimp sushi","SUSHI",2.5,10),
+        FoodDTO(24, MIXED_URL,"Dish","Mixed dish with 8 pcs","SUSHI",20.0,10)
+    )
+
     private fun buildDrinks() = listOf(
-        FoodDTO(30, COKE_URL,"Coke","Classi peperoni pizza","pizza",7.5,10),
-        FoodDTO(31, DIET_COKE_URL,"Diet Coke","Classi peperoni pizza","pizza",7.5,10),
-        FoodDTO(32, BEER_URL,"Beer","Classi peperoni pizza","pizza",7.5,10),
-        FoodDTO(33, WATER_URL,"Still water","Classi peperoni pizza","pizza",7.5,10),
-        FoodDTO(34, ORANGE_SODA,"Orange Soda","Classi peperoni pizza","pizza",7.5,10)
+        FoodDTO(30, COKE_URL,"Coke","Cold Coke","DRINK",2.5,10),
+        FoodDTO(31, DIET_COKE_URL,"Diet Coke","Cold Diet Coke","DRINK",2.5,10),
+        FoodDTO(32, BEER_URL,"Beer","Cold Beer","DRINK",3.5,10),
+        FoodDTO(33, WATER_URL,"Still water","Cold Water","DRINK",2.5,10),
+        FoodDTO(34, ORANGE_SODA,"Orange Soda","Cold Orange Soda","DRINK",2.5,10)
     )
 
     private val PEPPERONI_URL = "https://media.gettyimages.com/photos/spicy-sopressata-pizza-picture-id140440997?s=2048x2048"
@@ -45,7 +53,11 @@ object FoodApi {
     private val FOUR_CHEESE_URL = "https://www.insidetherustickitchen.com/wp-content/uploads/2020/07/Quattro-Formaggi-1200px-Inside-the-Rustic-Kitchen-2.jpg"
     private val CARBONARA_URL = "https://www.wellplated.com/wp-content/uploads/2017/02/Carbonara-Pizza-recipe.jpg"
 
-
+    private val SASHIMI_URL = "https://www.hokkai.com/wp-content/uploads/2019/05/1307-Sakesashimi.jpg"
+    private val CALIFORNIA_URL = "https://i1.wp.com/www.angsarap.net/wp-content/uploads/2018/02/California-Maki-Wide.jpg?fit=1080%2C720&ssl=1"
+    private val TUNA_URL = "https://ak.picdn.net/shutterstock/videos/28820818/thumb/1.jpg"
+    private val SHRIMP_URL = "https://www.perishablenews.com/wp-content/uploads/2020/03/se1223243.jpg"
+    private val MIXED_URL = "http://www.mangiareevivere.com/wp-content/uploads/2016/09/Taki_sushi_6-e1476389335551.png"
 
     private val COKE_URL = "https://i0.wp.com/www.eatthis.com/wp-content/uploads/2020/11/coke-glass.jpg?fit=1200%2C879&ssl=1"
     private val DIET_COKE_URL = "https://c.stocksy.com/a/53g400/z9/1114951.jpg"

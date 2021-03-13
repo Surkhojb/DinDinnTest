@@ -24,7 +24,7 @@ class DrinkViewModel @AssistedInject constructor (@Assisted initialState: DrinkS
 
     private fun fetchPizzas(){
         setState { copy(loading = true)}
-        val disposable = foodRepository.fetchPizza()
+        val disposable = foodRepository.fetchDrink()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { list, error ->
