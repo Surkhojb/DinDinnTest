@@ -19,6 +19,7 @@ class CartActivity : BaseActivity<ActivityCartBinding>() {
 
     private val viewModel: CartViewModel by viewModels()
     private val cartAdapter: CartAdapter by lazy { CartAdapter() }
+    private var cartAmount = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +32,15 @@ class CartActivity : BaseActivity<ActivityCartBinding>() {
         binding!!.cartList.adapter = cartAdapter
         binding!!.fabPayment.setOnClickListener {
             //Open payment fragment
+            val paymentFragment: CardPaymentFragment =
+                CardPaymentFragment.newInstance()
+            paymentFragment.arguments = Bundle().apply {
+                putString("payment_amount",cartAmount.toString())
+            }
+            paymentFragment.show(
+                supportFragmentManager,
+                "paymentFragment"
+            )
         }
     }
 
@@ -46,6 +56,7 @@ class CartActivity : BaseActivity<ActivityCartBinding>() {
                     binding!!.cartLoadingIndicator.visible(false)
                     binding!!.cartList.visible(true)
                     cartAdapter.refreshList(it.content as List<FoodItem>)
+                    cartAmount = it.content.sumByDouble { it.price }
                 }
 
                 is UIResult.Error -> {

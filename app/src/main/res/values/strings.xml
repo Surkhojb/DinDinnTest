@@ -10,4 +10,11 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="cart_title">Cart</string>
+    <string name="fake_address">Address: 70A Boat Quay, 049858, Singapore,049858</string>
+    <string name="fake_person">To: Juanjo Berenguer</string>
+    <string name="order_detail_title">Order Detail</string>
+    <string name="fake_card">Card: **** **** ****1010</string>
+    <string name="payment_detail_title">Payment Detail</string>
+    <string name="payment_amount_title">Payment Amount</string>
+    <string name="proceed_payment_title">PROCEED PAYMENT</string>
 </resources>
