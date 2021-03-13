@@ -1,21 +1,19 @@
-package com.surkhojb.dindinntest.data.remote
+package com.surkhojb.dindinntest.data
 
 import com.surkhojb.dindinntest.R
 import com.surkhojb.dindinntest.model.BannerItem
 import io.reactivex.rxjava3.core.Single
-import io.reactivex.rxjava3.schedulers.Schedulers
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 interface BannerRepository{
     fun fetchBanner(): Single<List<BannerItem>>
 }
 
-class BannerRepositoryImpl @Inject constructor(): BannerRepository {
+class BannerRepositoryImpl @Inject constructor():
+    BannerRepository {
 
     override fun fetchBanner(): Single<List<BannerItem>>{
         return Single.just(buildBanners())
-            .delay(10, TimeUnit.SECONDS, Schedulers.io())
     }
 
     private fun buildBanners() = listOf(

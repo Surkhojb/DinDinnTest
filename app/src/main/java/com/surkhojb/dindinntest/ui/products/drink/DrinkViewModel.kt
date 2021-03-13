@@ -1,4 +1,4 @@
-package com.surkhojb.dindinntest.ui.products.pizza
+package com.surkhojb.dindinntest.ui.products.drink
 
 import com.airbnb.mvrx.MavericksViewModel
 import com.airbnb.mvrx.MavericksViewModelFactory
@@ -14,8 +14,8 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class SushiViewModel @AssistedInject constructor (@Assisted initialState: SushiState,
-                                                  val foodRepository: FoodRepository): MavericksViewModel<SushiState>(initialState) {
+class DrinkViewModel @AssistedInject constructor (@Assisted initialState: DrinkState,
+                                                  val foodRepository: FoodRepository): MavericksViewModel<DrinkState>(initialState) {
     private val compositeDisposable: CompositeDisposable by lazy { CompositeDisposable() }
 
     init {
@@ -30,7 +30,7 @@ class SushiViewModel @AssistedInject constructor (@Assisted initialState: SushiS
                 .subscribe { list, error ->
                     if(!list.isNullOrEmpty()){
                         setState {
-                            copy( loading = false,sushiList = list.map { it.toModel() })
+                            copy( loading = false,drinkList = list.map { it.toModel() })
                         }
                     }else{
                         setState {
@@ -55,9 +55,9 @@ class SushiViewModel @AssistedInject constructor (@Assisted initialState: SushiS
 
     @AssistedFactory
     interface Factory :
-        AssistedViewModelFactory<SushiViewModel, SushiState> {
-        override fun create(state: SushiState): SushiViewModel
+        AssistedViewModelFactory<DrinkViewModel, DrinkState> {
+        override fun create(state: DrinkState): DrinkViewModel
     }
 
-    companion object : MavericksViewModelFactory<SushiViewModel, SushiState> by hiltMavericksViewModelFactory()
+    companion object : MavericksViewModelFactory<DrinkViewModel, DrinkState> by hiltMavericksViewModelFactory()
 }

@@ -31,14 +31,18 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <com.andremion.counterfab.CounterFab
+        android:id="@+id/fab_shopping_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/default_indicator"
+        android:src="@drawable/ic_shopping_cart"
+        android:layout_margin="16dp"
+        app:backgroundTint="@color/white"
+        app:badgeBackgroundColor="@android:color/holo_green_light"
+        app:badgeTextColor="@color/white"
+        app:badgePosition="RightTop"
         app:layout_anchor="@id/product_container"
         app:layout_anchorGravity="bottom|right|end"
-        android:layout_margin="16dp"
         />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

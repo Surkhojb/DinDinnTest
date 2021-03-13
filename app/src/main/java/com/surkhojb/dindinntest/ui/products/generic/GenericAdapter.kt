@@ -6,7 +6,7 @@ import com.surkhojb.dindinntest.R
 import com.surkhojb.dindinntest.model.FoodItem
 import com.surkhojb.dindinntest.utils.inflate
 
-class GenericAdapter: RecyclerView.Adapter<GenericViewHolder>() {
+class GenericAdapter(private val action: (FoodItem) -> Unit): RecyclerView.Adapter<GenericViewHolder>() {
 
     private val foodItems: MutableList<FoodItem> = mutableListOf()
 
@@ -19,10 +19,11 @@ class GenericAdapter: RecyclerView.Adapter<GenericViewHolder>() {
 
     override fun onBindViewHolder(holder: GenericViewHolder, position: Int) {
         val item = foodItems[position]
-        holder.bind(item)
+        holder.bind(item,action)
     }
 
     fun refreshList(items: List<FoodItem>){
+        foodItems.clear()
         foodItems.addAll(items)
         notifyDataSetChanged()
     }

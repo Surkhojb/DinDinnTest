@@ -1,4 +1,4 @@
-package com.surkhojb.dindinntest.ui.products.pizza
+package com.surkhojb.dindinntest.ui.products.drink
 
 import android.os.Bundle
 import android.view.View
@@ -14,10 +14,10 @@ import com.surkhojb.dindinntest.ui.products.main.ProductEvent
 import com.surkhojb.dindinntest.utils.visible
 import org.greenrobot.eventbus.EventBus
 
-class SushiFragment: Fragment(R.layout.generic_product_fragment), MavericksView {
+class DrinkFragment: Fragment(R.layout.generic_product_fragment), MavericksView {
 
     private lateinit var binding: GenericProductFragmentBinding
-    private  val viewModel: SushiViewModel by fragmentViewModel()
+    private  val viewModel: DrinkViewModel by fragmentViewModel()
 
     private val genericAdapter: GenericAdapter by lazy { GenericAdapter { foodItem ->
         EventBus.getDefault().post(ProductEvent())
@@ -32,13 +32,13 @@ class SushiFragment: Fragment(R.layout.generic_product_fragment), MavericksView 
 
     override fun invalidate() = withState(viewModel){ state ->
         binding.genericLoadingIndicator.visible(state.loading)
-        if(!state.sushiList.isNullOrEmpty()){
+        if(!state.drinkList.isNullOrEmpty()){
             handleList(state)
         }
     }
 
-    private fun handleList(state: SushiState){
+    private fun handleList(state: DrinkState){
         binding.genericProductList.visible(!state.loading)
-        genericAdapter.refreshList(state.sushiList)
+        genericAdapter.refreshList(state.drinkList)
     }
 }

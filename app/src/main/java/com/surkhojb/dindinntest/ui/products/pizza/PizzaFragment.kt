@@ -10,14 +10,19 @@ import com.airbnb.mvrx.withState
 import com.surkhojb.dindinntest.R
 import com.surkhojb.dindinntest.databinding.GenericProductFragmentBinding
 import com.surkhojb.dindinntest.ui.products.generic.GenericAdapter
+import com.surkhojb.dindinntest.ui.products.main.ProductEvent
 import com.surkhojb.dindinntest.utils.visible
+import org.greenrobot.eventbus.EventBus
 
 class PizzaFragment: Fragment(R.layout.generic_product_fragment), MavericksView {
 
     private lateinit var binding: GenericProductFragmentBinding
     private  val viewModel: PizzaViewModel by fragmentViewModel()
 
-    private val genericAdapter: GenericAdapter by lazy { GenericAdapter() }
+    private val genericAdapter: GenericAdapter by lazy { GenericAdapter { foodItem ->
+        EventBus.getDefault().post(ProductEvent())
+        viewModel.addToCart(foodItem)
+    } }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = GenericProductFragmentBinding.bind(view)

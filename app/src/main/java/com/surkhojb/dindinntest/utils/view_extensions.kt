@@ -54,7 +54,7 @@ fun Activity.showSuccessWithAction(targetView: View,messageResource: Int,
 private fun createSnackBar(targetView: View, messageResource: Int, color: Int = R.color.errorColorBackground): Snackbar {
     return Snackbar.make(targetView,
         targetView.context.getString(messageResource),
-        Snackbar.LENGTH_INDEFINITE)
+        Snackbar.LENGTH_SHORT)
         .apply {
             this.view.setBackgroundColor(
                 ContextCompat.getColor(context,color))
@@ -64,7 +64,7 @@ private fun createSnackBar(targetView: View, messageResource: Int, color: Int = 
 private fun createSnackBar(targetView: View, errorMessage: String, color: Int = R.color.errorColorBackground): Snackbar {
     return Snackbar.make(targetView,
         errorMessage,
-        Snackbar.LENGTH_INDEFINITE)
+        Snackbar.LENGTH_SHORT)
         .apply {
             this.view.setBackgroundColor(
                 ContextCompat.getColor(context,color))

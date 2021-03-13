@@ -1,9 +1,6 @@
 package com.surkhojb.dindinntest.di
 
-import com.surkhojb.dindinntest.data.FoodRepository
-import com.surkhojb.dindinntest.data.FoodRepositoryImpl
-import com.surkhojb.dindinntest.data.remote.BannerRepository
-import com.surkhojb.dindinntest.data.remote.BannerRepositoryImpl
+import com.surkhojb.dindinntest.data.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,9 +13,15 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providesBannerRepository(): BannerRepository = BannerRepositoryImpl()
+    fun providesBannerRepository(): BannerRepository =
+        BannerRepositoryImpl()
 
     @Provides
     @Singleton
     fun providesFoodRepository(): FoodRepository = FoodRepositoryImpl()
+
+    @Provides
+    @Singleton
+    fun providesOrderRepository(): OrderRepository =
+        OrderRepositoryImpl()
 }

@@ -6,6 +6,7 @@ import com.surkhojb.dindinntest.data.FoodRepository
 import com.surkhojb.dindinntest.data.mapper.toModel
 import com.surkhojb.dindinntest.di.mvrx.AssistedViewModelFactory
 import com.surkhojb.dindinntest.di.mvrx.hiltMavericksViewModelFactory
+import com.surkhojb.dindinntest.model.FoodItem
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -45,6 +46,10 @@ class PizzaViewModel @AssistedInject constructor (@Assisted initialState: PizzaS
     override fun onCleared() {
         compositeDisposable.clear()
         super.onCleared()
+    }
+
+    fun addToCart(foodItem: FoodItem) {
+        foodRepository.addToCart(foodItem)
     }
 
     @AssistedFactory
